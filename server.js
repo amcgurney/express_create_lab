@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+//const productsController 
+
 const PORT = 3000;
 
 // middleware
@@ -11,9 +13,12 @@ const products = require('./products');
 
 // product index route
 app.get('/products', (req, res) => {
-  res.send(products);
+  res.render('index.ejs', {products: products});
 });
 
+app.get ('/products/new', (req, res) => {
+  res.render('create.ejs');
+})
 // product show route
 app.get('/products/:id', (req, res) => {
   res.send(products[req.params.id]);
